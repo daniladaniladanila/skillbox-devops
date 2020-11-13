@@ -9,8 +9,10 @@ before_script:
 
 build: 
   script:
-    - docker build . --tag registry.gitlab.com/daniladaniladanila/skillbox
-    - docker push registry.gitlab.com/daniladaniladanila/skillbox
-    
+    - docker pull registry.gitlab.com/daniladaniladanila/skillbox:latest
+    - docker build . --tag registry.gitlab.com/daniladaniladanila/skillbox:$CI_BUILD_REF --tag --tag registry.gitlab.com/daniladaniladanila/skillbox:latest 
+    - docker push registry.gitlab.com/daniladaniladanila/skillbox:latest
+    - docker push registry.gitlab.com/daniladaniladanila/skillbox:$CI_BUILD_REF
+
     # - docker build -t registry.gitlab.com/daniladaniladanila/skillbox .
     # - docker push registry.gitlab.com/daniladaniladanila/skillbox
