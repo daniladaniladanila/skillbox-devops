@@ -3,6 +3,13 @@ image: docker
 services:
   - docker: dind
 
+before_script:
+  - export
+  - docker login registry.gitlab.com --username daniladaniladanila --password 5uj6VxzwWfiKg_9uPBbR
+
 build: 
   script:
     - docker build . --tag flatris
+    
+    # - docker build -t registry.gitlab.com/daniladaniladanila/skillbox .
+    # - docker push registry.gitlab.com/daniladaniladanila/skillbox
