@@ -5,11 +5,12 @@ services:
 
 before_script:
   - export
-  - docker login registry.gitlab.com --username daniladaniladanila --password 5uj6VxzwWfiKg_9uPBbR
+  - docker login registry.gitlab.com --username $CI_REGISTRY_USER --password $CI_REGISTRY_PASSWORD
 
 build: 
   script:
-    - docker build . --tag flatris
+    - docker build . --tag registry.gitlab.com/daniladaniladanila/skillbox
+    - docker push registry.gitlab.com/daniladaniladanila/skillbox
     
     # - docker build -t registry.gitlab.com/daniladaniladanila/skillbox .
     # - docker push registry.gitlab.com/daniladaniladanila/skillbox
